@@ -78,10 +78,10 @@ while n <= 5:                                # 5회 반복
 
     if str(q).strip() == str(x).strip():     # 입력 확인(공백제거)
         ########### 정답 소리 재생
-        winsound.PlaySound(                  
+        winsound.PlaySound(
             './sound/good.wav',
-            winsound.SND_FILENAME   #'''winsound의 PlaySound라는 클래스로 지정'''
-            #'''SND_FILENAME을 직접 넣었음'''
+            winsound.SND_FILENAME  # '''winsound의 PlaySound라는 클래스로 지정'''
+            # '''SND_FILENAME을 직접 넣었음'''
         )
         ############
         print(">>Pass!\n")
@@ -109,10 +109,12 @@ print()
 print('--------------')
 
 
-if cor_cnt >= 3:                             # 3개 이상 합격
+if et >= str(30):
+    print("결과 : 불합격 (시간 초과)")
+elif cor_cnt >= 3:                             # 3개 이상 합격
     print("결과 : 합격")
 else:
-    print("불합격")
+    print("결과 : 불합격")
 
 ######### 결과 기록 DB 삽입
     '''data삽입 전에 먼저 기록테이블 구조 열어보기'''
