@@ -44,6 +44,7 @@ words = []                                   # 영어 단어 리스트(1000개 �
 
 n = 1                                        # 게임 시도 횟수
 cor_cnt = 0                                  # 정답 개수
+wro_cnt = 0                                  # 오답 개수
 
 try:
     word_f=open('./resource/word.txt', 'r') # 문제 txt 파일 로드
@@ -66,6 +67,8 @@ user.user_info()                              #### user 입장 알림 메서드 
 start = time.time()                          # Start Time
 
 while n <= 5:                                # 5회 반복
+
+    if wro_cnt >= 3: break
     random.shuffle(words)                    # List shuffle!
     q = random.choice(words)                 # List -> words random extract!
 
@@ -93,6 +96,7 @@ while n <= 5:                                # 5회 반복
         ##################
 
         print(">>Wrong!\n")
+        wro_cnt += 1  # 정답 개수 카운트
 
     n += 1                                   # 다음 문제 전환
 
